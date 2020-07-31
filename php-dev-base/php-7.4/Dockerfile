@@ -14,6 +14,7 @@ RUN apt-get update \
         libbz2-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
+        libonig-dev \
         libpng-dev \
         libpq-dev \
         libssl-dev \
