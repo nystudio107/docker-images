@@ -10,6 +10,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         g++ \
+        git \
         libbz2-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -63,6 +64,9 @@ RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/php.ini && \
     echo "memory_limit = 256M" >> /usr/local/etc/php/php.ini && \
     echo "opcache.revalidate_freq = 0" >> /usr/local/etc/php/php.ini && \
     echo "opcache.validate_timestamps = 1" >> /usr/local/etc/php/php.ini
+
+# Copy the `xdebug.ini` file into place for xdebug
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Copy the `zzz-docker.conf` file into place for php-fpm
 COPY ./zzz-docker.conf /usr/local/etc/php-fpm.d/zzz-docker.conf
