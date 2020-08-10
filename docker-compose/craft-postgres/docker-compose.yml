@@ -10,6 +10,7 @@ services:
       - ./cms/.env
     links:
       - php
+    init: true
     ports:
       - "8000:80"
     volumes:
@@ -27,6 +28,7 @@ services:
       *env
     expose:
       - "9000"
+    init: true
     links:
       - postgres
       - redis
@@ -47,6 +49,7 @@ services:
       POSTGRES_DB: project
       POSTGRES_USER: project
       POSTGRES_PASSWORD: project
+    init: true
     ports:
       - "5432:5432"
     volumes:
@@ -58,6 +61,7 @@ services:
       dockerfile: ./Dockerfile
     expose:
       - "6379"
+    init: true
   # webpack - frontend build system
   webpack:
     build:
@@ -65,6 +69,7 @@ services:
       dockerfile: ./Dockerfile
     env_file:
       *env
+    init: true
     ports:
       - "8080:8080"
     volumes:
