@@ -8,6 +8,7 @@ services:
       dockerfile: ./Dockerfile
     env_file: &env
       - ./cms/.env
+    init: true
     links:
       - php
     ports:
@@ -17,7 +18,7 @@ services:
       - ./cms/web:/var/www/project/cms/web:cached
   # php - personal home page
   php:
-    build:
+    build: &php-build
       context: ./docker-config/php-dev-craft
       dockerfile: ./Dockerfile
     depends_on:
@@ -27,15 +28,32 @@ services:
       *env
     expose:
       - "9000"
-    links:
+    init: true
+    links: &php-links
       - mariadb
       - redis
-    volumes:
+    volumes: &php-volumes
       - cpresources:/var/www/project/cms/web/cpresources
       - storage:/var/www/project/cms/storage
       - ./cms:/var/www/project/cms:cached
       - ./cms/vendor:/var/www/project/cms/vendor:delegated
       - ./cms/storage/logs:/var/www/project/cms/storage/logs:delegated
+  # queue - runs queue jobs via ./craft queue/listen
+  queue:
+    build:
+      *php-build
+    command: ./craft queue/listen 10
+    depends_on:
+      - "php"
+    env_file:
+      *env
+    expose:
+      - "9001"
+    init: true
+    links:
+      *php-links
+    volumes:
+      *php-volumes
   # mariadb - database
   mariadb:
     build:
@@ -48,6 +66,7 @@ services:
       MYSQL_DATABASE: project
       MYSQL_USER: project
       MYSQL_PASSWORD: project
+    init: true
     ports:
       - "3306:3306"
     volumes:
@@ -59,6 +78,7 @@ services:
       dockerfile: ./Dockerfile
     expose:
       - "6379"
+    init: true
   # webpack - frontend build system
   webpack:
     build:
@@ -66,6 +86,7 @@ services:
       dockerfile: ./Dockerfile
     env_file:
       *env
+    init: true
     ports:
       - "8080:8080"
     volumes:
