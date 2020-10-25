@@ -26,7 +26,6 @@ RUN apt-get update \
     pecl install \
         imagick-3.4.4 \
         redis \
-        xdebug-2.8.1 \
     && \
     # Configure PHP extensions
     docker-php-ext-configure \
@@ -56,13 +55,13 @@ RUN apt-get update \
     docker-php-ext-enable \
         imagick \
         redis \
-        xdebug \
     # Clean apt repo caches that don't need to be part of the image
     && \
     apt-get clean \
     && \
     # Clean out directories that don't need to be part of the image
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # Append our php.ini overrides to the end of the file
 RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/php.ini && \
@@ -71,9 +70,6 @@ RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/php.ini && \
     echo "memory_limit = 256M" >> /usr/local/etc/php/php.ini && \
     echo "opcache.revalidate_freq = 0" >> /usr/local/etc/php/php.ini && \
     echo "opcache.validate_timestamps = 1" >> /usr/local/etc/php/php.ini
-
-# Copy the `xdebug.ini` file into place for xdebug
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Copy the `zzz-docker.conf` file into place for php-fpm
 COPY ./zzz-docker.conf /usr/local/etc/php-fpm.d/zzz-docker.conf
