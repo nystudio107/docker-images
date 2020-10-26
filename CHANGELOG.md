@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.4 - 2020.10.26
+### Changed
+* Use port `9003` for `xdebug`
+
 ## 1.0.3 - 2020.10.24
 ### Added
 * Added a `php_xdebug` container to speed up normal request by eliminating `xdebug` unless it's requested for via `XDEBUG_SESSION` cookie
