@@ -1,5 +1,10 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.5 - 2020.10.26
+### Changed
+* Removed deprecated `links` from `docker-compose.yaml`
+* Use Composer 2.x
+
 ## 1.0.4 - 2020.10.26
 ### Changed
 * Use port `9003` for `xdebug`
