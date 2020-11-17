@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.6 - 2020.11.17
+### Fixed
+* Removed `xdebug.remote_connect_back` from the `php-dev-base` container's `xdebug.ini` file to allow xdebug to connect properly
+
 ## 1.0.5 - 2020.10.26
 ### Changed
 * Removed deprecated `links` from `docker-compose.yaml`
