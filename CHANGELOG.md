@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.7 - 2020.11.20
+### Added
+* Add `node-12` image
+
 ## 1.0.6 - 2020.11.17
 ### Fixed
 * Removed `xdebug.remote_connect_back` from the `php-dev-base` container's `xdebug.ini` file to allow xdebug to connect properly
