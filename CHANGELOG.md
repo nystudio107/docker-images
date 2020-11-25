@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.9 - 2020.11.25
+### Changed
+* Change `mysql-client` to `mariadb-client`
+
 ## 1.0.8 - 2020.11.25
 ### Added
 * Add `mysql-client` in the `php-dev-craft` & `php-prod-craft` MariaDB containers so we get `mysqldump`
