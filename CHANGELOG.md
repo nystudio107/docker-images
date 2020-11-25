@@ -2,7 +2,7 @@
 
 ## 1.0.8 - 2020.11.25
 ### Added
-* Add `mysql-client` in the `php-dev-craft` MariaDB container so we get `mysqldump`
+* Add `mysql-client` in the `php-dev-craft` & `php-prod-craft` MariaDB containers so we get `mysqldump`
 
 ## 1.0.7 - 2020.11.20
 ### Added
