@@ -4,6 +4,9 @@
 ### Added
 * Add `mysql-client` in the `php-dev-craft` & `php-prod-craft` MariaDB containers so we get `mysqldump`
 
+### Changed
+* Both MariaDB and Postgres `php-prod-craft` containers should use `FROM php-prod-base`
+
 ## 1.0.7 - 2020.11.20
 ### Added
 * Add `node-12` image
