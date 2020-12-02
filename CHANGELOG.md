@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.0.10 - 2020.12.01
+### Added
+* Added `postgresql-client-12` to the postgres PHP containers to allow db backups to work
+
 ## 1.0.9 - 2020.11.25
 ### Changed
 * Change `mysql-client` to `mariadb-client`
