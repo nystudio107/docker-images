@@ -7,6 +7,7 @@ RUN apt-get update \
     # apt Debian packages
     apt-get install -y \
         ca-certificates \
+        dh-autoreconf \
         fonts-liberation \
         gconf-service \
         libgl1-mesa-glx \
