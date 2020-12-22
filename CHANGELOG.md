@@ -1,5 +1,10 @@
 # nystudio107/docker-images Change Log
 
+## 1.1.0 - 2020.12.21
+### Added
+* Added `dh-autoreconf` to fix a [build issue](https://github.com/imagemin/imagemin-gifsicle/issues/37#issuecomment-578115789) with gifsicle
+* Added PHP 7.4 images for `php-dev-base` and `php-prod-base`
+
 ## 1.0.10 - 2020.12.01
 ### Added
 * Added `postgresql-client-12` to the postgres PHP containers to allow db backups to work
