@@ -4,7 +4,7 @@ FROM nystudio107/php-prod-base
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         lsb-release \
         gnupg \
         bash-completion \
@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         nano \
         jpegoptim \
         optipng \

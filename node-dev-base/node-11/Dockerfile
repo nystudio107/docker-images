@@ -5,7 +5,7 @@ FROM node:11
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         ca-certificates \
         dh-autoreconf \
         fonts-liberation \

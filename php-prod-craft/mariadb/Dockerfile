@@ -4,7 +4,7 @@ FROM nystudio107/php-prod-base
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         mariadb-client \
         nano \
         jpegoptim \
