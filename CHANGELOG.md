@@ -1,6 +1,12 @@
 # nystudio107/docker-images Change Log
 
-## 1.1.2 - UNRELEASED
+## 1.2.0 - UNRELEASED
+### Added
+* Added significantly slimmer Alpine images for all containers with the `-alpine` tag
+* Added `redis` placeholder container
+* Added `mariadb` placeholder container
+* Added `postgres` placeholder container
+
 ### Changed
 * Added `--no-install-recommends` to all `apt-get install` commands
 
