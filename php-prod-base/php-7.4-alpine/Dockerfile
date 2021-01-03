@@ -4,7 +4,8 @@ FROM php:7.4-fpm-alpine
 # these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
 ENV PHPIZE_DEPS \
 		autoconf \
-		dpkg-dev dpkg \
+		dpkg-dev \
+		dpkg \
 		file \
 		g++ \
 		gcc \
