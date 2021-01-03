@@ -11,20 +11,33 @@ RUN apk update \
     && \
     apk update \
     && \
-    apk add --virtual BUILD_DEPS \
+    apk add --no-cache \
+        # Packages needed for npm install for mozjpeg, can't --virtual and apk del later
         autoconf \
         automake \
         build-base \
-        gcc \
-    && \
-    apk add --no-cache \
+		g++ \
+		libc-dev \
+		libtool \
+		libpng-dev \
+		make \
+		nasm \
+		# Misc packages
+        nano \
+        # Image optimization packages
+        gifsicle \
+        jpegoptim \
+        libpng-dev \
+        libwebp-tools \
+        libjpeg-turbo-utils \
+        optipng \
+        pngquant \
+        # Headless Chrome packages
         chromium \
         harfbuzz \
         "freetype>2.8" \
         ttf-freefont \
-        nss \
-    && \
-    apk del BUILD_DEPS
+        nss
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
