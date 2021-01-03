@@ -11,29 +11,36 @@ ENV PHPIZE_DEPS \
 		libc-dev \
 		make \
 		pkgconf \
-		re2c
+		re2c \
+		wget
 
 # Install packages
 RUN set -eux; \
-    && \
     # Packages needed only for build
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
     && \
     # Packages to install
     apk add --no-cache \
-        libonig-dev \
-        libbz2-dev \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
+        bzip2-dev \
+        ca-certificates \
+        curl \
+        fcgi \
+        freetype-dev \
+        gettext-dev \
+        icu-dev \
+        imagemagick \
+        imagemagick-dev \
+        libjpeg-turbo-dev \
+        libmcrypt-dev \
+        libpng \
         libpng-dev \
-        libpq-dev \
-        libssl-dev \
-        libicu-dev \
-        libmagickwand-dev \
+        libressl-dev \
+        libtool \
+        libxml2-dev \
         libzip-dev \
+        oniguruma-dev \
         unzip \
-        zip \
     && \
     # pecl PHP extensions
     pecl install \
@@ -70,7 +77,8 @@ RUN set -eux; \
         redis \
     && \
     # Remove the build deps
-    apt del .build-deps \
+    apk del .build-deps \
+    && \
     # Clean out directories that don't need to be part of the image
     rm -rf /tmp/* /var/tmp/*
 
