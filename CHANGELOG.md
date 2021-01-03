@@ -1,6 +1,6 @@
 # nystudio107/docker-images Change Log
 
-## 1.2.0 - UNRELEASED
+## 1.2.0 - 2021.01.03
 ### Added
 * Added significantly slimmer Alpine images for all containers with the `-alpine` tag
 * Added `redis` placeholder container
