@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.1 - 2021.01.03
+### Changed
+* Use `yobasystems/alpine-mariadb:10.4.15` for MariaDB
+
 ## 1.2.0 - 2021.01.03
 ### Added
 * Added significantly slimmer Alpine images for all containers with the `-alpine` tag
