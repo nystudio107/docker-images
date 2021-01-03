@@ -4,7 +4,7 @@ FROM php:7.4-fpm
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
         apt-utils \
         autoconf \
         ca-certificates \

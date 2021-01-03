@@ -1,26 +1,47 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm-alpine
+
+# dependencies required for running "phpize"
+# these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
+ENV PHPIZE_DEPS \
+		autoconf \
+		dpkg-dev \
+		dpkg \
+		file \
+		g++ \
+		gcc \
+		libc-dev \
+		make \
+		pkgconf \
+		re2c \
+		wget
 
 # Install packages
-RUN apt-get update \
+RUN set -eux; \
+    # Packages needed only for build
+	apk add --no-cache --virtual .build-deps \
+		$PHPIZE_DEPS \
     && \
-    # apt Debian packages
-    apt-get install -y --no-install-recommends \
-        apt-utils \
-        autoconf \
+    # Packages to install
+    apk add --no-cache \
+        bzip2-dev \
         ca-certificates \
         curl \
-        g++ \
-        libbz2-dev \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
+        fcgi \
+        freetype-dev \
+        gettext-dev \
+        icu-dev \
+        imagemagick \
+        imagemagick-dev \
+        libjpeg-turbo-dev \
+        libmcrypt-dev \
+        libpng \
         libpng-dev \
-        libpq-dev \
-        libssl-dev \
-        libicu-dev \
-        libmagickwand-dev \
+        libressl-dev \
+        libtool \
+        libxml2-dev \
         libzip-dev \
+        oniguruma-dev \
         unzip \
-        zip \
     && \
     # pecl PHP extensions
     pecl install \
@@ -29,7 +50,7 @@ RUN apt-get update \
     && \
     # Configure PHP extensions
     docker-php-ext-configure \
-        gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+        gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && \
     # Install PHP extensions
     docker-php-ext-install \
@@ -55,13 +76,16 @@ RUN apt-get update \
     docker-php-ext-enable \
         imagick \
         redis \
-    # Clean apt repo caches that don't need to be part of the image
     && \
-    apt-get clean \
+    # Remove the build deps
+    apk del .build-deps \
     && \
     # Clean out directories that don't need to be part of the image
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /tmp/* /var/tmp/*
 
+# https://github.com/docker-library/php/issues/240
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 # Append our php.ini overrides to the end of the file
 RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/php.ini && \

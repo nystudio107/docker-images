@@ -1,35 +1,20 @@
-FROM nystudio107/php-prod-base
-
-# Install postgres repositories
-RUN apt-get update \
-    && \
-    # apt Debian packages
-    apt-get install -y \
-        lsb-release \
-        gnupg \
-        bash-completion \
-        wget \
-    && \
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-    && \
-    echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list
+FROM nystudio107/php-prod-base:7.3
 
 # Install packages
 RUN apt-get update \
     && \
     # apt Debian packages
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
+        mariadb-client \
         nano \
         jpegoptim \
         optipng \
         gifsicle \
         webp \
-        postgresql-client-12 \
     && \
     # Install PHP extensions
     docker-php-ext-install \
-        pdo_pgsql \
-        pgsql \
+        pdo_mysql \
     && \
     # Install Composer
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
