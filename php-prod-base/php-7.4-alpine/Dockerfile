@@ -82,6 +82,10 @@ RUN set -eux; \
     # Clean out directories that don't need to be part of the image
     rm -rf /tmp/* /var/tmp/*
 
+# https://github.com/docker-library/php/issues/240
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 # Append our php.ini overrides to the end of the file
 RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/php.ini && \
     echo "post_max_size = 10M" >> /usr/local/etc/php/php.ini && \
