@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.2 - 2021.01.04
+### Changed
+* `chown` the `cms/web` directory
+
 ## 1.2.1 - 2021.01.03
 ### Changed
 * Use `yobasystems/alpine-mariadb:10.4.15` for MariaDB
