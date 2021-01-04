@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.3 - 2021.01.04
+### Added
+* Added `node-dev-webpack` placeholder containers
+
 ## 1.2.2 - 2021.01.04
 ### Changed
 * `chown` the `cms/web` directory
