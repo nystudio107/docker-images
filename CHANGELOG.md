@@ -1,5 +1,11 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.4 - 2021.01.06
+### Changed
+* Broke out the `php.ini` settings into `zzz-docker-php.ini` that we copy into place
+* Synced up the various settings that contribute to the maximum uploadable file size
+* Renamed `zzz-docker.cong` -> `zzz-docker-php-fpm.conf` to make what it's for more clear
+
 ## 1.2.3 - 2021.01.04
 ### Added
 * Added `node-dev-webpack` placeholder containers
