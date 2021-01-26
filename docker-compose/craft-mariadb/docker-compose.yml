@@ -33,7 +33,8 @@ services:
       - ./cms:/var/www/project/cms:cached
       - ./cms/vendor:/var/www/project/cms/vendor:delegated
       - ./cms/storage/logs:/var/www/project/cms/storage/logs:delegated
-  # php - run php-fpm with xdebug
+      - ./cms/storage/runtime/compiled_templates:/var/www/project/cms/storage/runtime/compiled_templates:delegated
+    # php - run php-fpm with xdebug
   php_xdebug:
     build:
       context: ./docker-config/php-dev-craft
