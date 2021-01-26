@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14-alpine
 
 # Install packages
 RUN apt-get update \

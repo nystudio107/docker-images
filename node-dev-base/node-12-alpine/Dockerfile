@@ -19,16 +19,16 @@ RUN apk update \
         autoconf \
         automake \
         build-base \
-		g++ \
-		gcc \
-		glu \
-		libc6-compat \
-		libtool \
-		libpng-dev \
-		libxxf86vm \
-		make \
-		nasm \
-		# Misc packages
+        g++ \
+        gcc \
+        glu \
+        libc6-compat \
+        libtool \
+        libpng-dev \
+        libxxf86vm \
+        make \
+        nasm \
+        # Misc packages
         nano \
         # Image optimization packages
         gifsicle \

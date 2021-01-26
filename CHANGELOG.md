@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.5 - 2021.01.26
+### Added
+* Added Docker bind mount for `compiled_templates` so XDebug can be used with Twig templates
+
 ## 1.2.4 - 2021.01.06
 ### Changed
 * Broke out the `php.ini` settings into `zzz-docker-php.ini` that we copy into place
