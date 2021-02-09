@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.6 - 2021.02.09
+### Added
+* Added PHP 8.0 containers with JIT enabled for prod, and including Imagick for both dev & prod
+
 ## 1.2.5 - 2021.01.26
 ### Added
 * Added Docker bind mount for `compiled_templates` so XDebug can be used with Twig templates
