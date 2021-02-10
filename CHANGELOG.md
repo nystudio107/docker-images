@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.7 - UNRELEASED
+### Fixed
+* Fixed iconv for Alpine 3.1.3
+
 ## 1.2.6 - 2021.02.09
 ### Added
 * Added PHP 8.0 containers with JIT enabled for prod, and including Imagick for both dev & prod
