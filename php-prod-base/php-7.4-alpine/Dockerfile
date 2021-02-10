@@ -29,6 +29,7 @@ RUN set -eux; \
         fcgi \
         freetype-dev \
         gettext-dev \
+        gnu-libiconv=1.15-r3 \
         icu-dev \
         imagemagick \
         imagemagick-dev \
@@ -84,7 +85,6 @@ RUN set -eux; \
     rm -rf /tmp/* /var/tmp/*
 
 # https://github.com/docker-library/php/issues/1121
-RUN apk add --no-cache gnu-libiconv=1.15-r3
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 # Copy the `zzz-docker-php.ini` file into place for php
