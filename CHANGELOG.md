@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.7 - 2021.02.09
+### Fixed
+* Fixed iconv for Alpine 3.1.3 by pinning it to `gnu-libiconv=1.15r3` per: https://github.com/docker-library/php/issues/1121
+
 ## 1.2.6 - 2021.02.09
 ### Added
 * Added PHP 8.0 containers with JIT enabled for prod, and including Imagick for both dev & prod
