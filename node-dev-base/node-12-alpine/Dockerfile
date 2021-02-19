@@ -35,6 +35,7 @@ RUN apk update \
         jpegoptim \
         libpng-dev \
         libwebp-tools \
+        libjpeg-turbo-dev \
         libjpeg-turbo-utils \
         optipng \
         pngquant \
