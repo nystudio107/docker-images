@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.8 - 2021.02.19
+### Added
+* Added `libjpeg-turbo-dev` to `node-dev-base:12-alpine` to allow ImageMin to work with Sharp
+
 ## 1.2.7 - 2021.02.09
 ### Fixed
 * Fixed iconv for Alpine 3.1.3 by pinning it to `gnu-libiconv=1.15r3` per: https://github.com/docker-library/php/issues/1121
