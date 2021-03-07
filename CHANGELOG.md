@@ -1,5 +1,12 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.9 - 2021.03.07
+### Added
+* Added `docker-compose.yaml` & image for MySQL 8
+
+### Changed
+* Use official MariaDB images
+
 ## 1.2.8 - 2021.02.19
 ### Added
 * Added `libjpeg-turbo-dev` to `node-dev-base:12-alpine` to allow ImageMin to work with Sharp
