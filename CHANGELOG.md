@@ -1,5 +1,13 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.11 - 2021.03.29
+### Added
+* Added support for webp to the GD PHP extension in `php-prod-base:8.0-alpine` & `php-prod-base:7.4-alpine`
+
+## 1.2.10 - 2021.03.14
+### Added
+* Added `14-alpine` image for `n`ode-dev-base`
+
 ## 1.2.9 - 2021.03.07
 ### Added
 * Added `docker-compose.yaml` & image for MySQL 8

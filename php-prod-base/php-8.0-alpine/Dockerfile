@@ -39,6 +39,7 @@ RUN set -eux; \
         libpng-dev \
         libressl-dev \
         libtool \
+        libwebp-dev \
         libxml2-dev \
         libzip-dev \
         oniguruma-dev \
@@ -57,7 +58,8 @@ RUN set -eux; \
     && \
     # Configure PHP extensions
     docker-php-ext-configure \
-        gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+        # ref: https://github.com/docker-library/php/issues/920#issuecomment-562864296
+        gd --enable-gd --with-freetype --with-jpeg --with-webp \
     && \
     # Install PHP extensions
     docker-php-ext-install \
