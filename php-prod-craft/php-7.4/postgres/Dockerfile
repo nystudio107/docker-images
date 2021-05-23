@@ -42,6 +42,9 @@ RUN apt-get update \
 
 WORKDIR /var/www/project
 
+# run container as the www-data user
+USER www-data
+
 COPY ./run_queue.sh .
 RUN chmod a+x run_queue.sh
 
