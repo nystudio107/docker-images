@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.12 - 2021.05.23
+### Changed
+* Run php container as the `www-data` user to avoid permissions issues
+
 ## 1.2.11 - 2021.03.29
 ### Added
 * Added support for webp to the GD PHP extension in `php-prod-base:8.0-alpine` & `php-prod-base:7.4-alpine`

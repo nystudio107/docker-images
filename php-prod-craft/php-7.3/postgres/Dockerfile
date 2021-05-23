@@ -56,6 +56,9 @@ RUN mkdir -p /var/www/project/cms/web/cpresources && \
 
 WORKDIR /var/www/project/cms
 
+# run container as the www-data user
+USER www-data
+
 # Force permissions, update Craft, and start php-fpm
 
 # Do a `composer install` without running any Composer scripts
