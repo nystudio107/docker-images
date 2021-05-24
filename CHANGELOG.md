@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.13 - 2021.05.24
+### Changed
+* Use the `mysql/mysql-server:8.0` image for MySQL, which is the official image from Oracle and is M1 compataible (as well as a bit smaller) (https://github.com/docker-library/mysql/issues/318)
+
 ## 1.2.12 - 2021.05.23
 ### Changed
 * Run php container as the `www-data` user to avoid permissions issues
