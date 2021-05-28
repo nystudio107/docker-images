@@ -1,6 +1,5 @@
 name: Build Docker Images
 on:
-  workflow_dispatch:
   push:
     branches:
       - develop

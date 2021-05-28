@@ -1,9 +1,8 @@
 name: Build and Push Docker Images
 on:
-  workflow_dispatch:
   push:
-    tags:
-      - '*.*.*'
+    branches:
+      - develop
 jobs:
   build-node:
     runs-on: ubuntu-latest
