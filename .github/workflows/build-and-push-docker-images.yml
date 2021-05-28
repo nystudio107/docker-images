@@ -1,8 +1,8 @@
 name: Build and Push Docker Images
 on:
   push:
-    branches:
-      - develop
+    tags:
+      - '*.*.*'
 jobs:
   build-node:
     runs-on: ubuntu-latest
