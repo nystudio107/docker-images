@@ -1,6 +1,6 @@
 # nystudio107/docker-images Change Log
 
-## 1.2.14 - 2021.05.28
+## 1.2.14 - 2021.06.11
 ### Added
 * Added GitHub actions for automated Docker image building & pushing
 
