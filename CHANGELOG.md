@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.14 - 2021.06.11
+### Added
+* Added GitHub actions for automated Docker image building & pushing
+
 ## 1.2.13 - 2021.05.24
 ### Changed
 * Use the `mysql/mysql-server:8.0` image for MySQL, which is the official image from Oracle and is M1 compataible (as well as a bit smaller) (https://github.com/docker-library/mysql/issues/318)
