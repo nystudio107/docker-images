@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.15 - 2021.06.11
+### Changed
+* Cleaned up the `php-dev-craft` & `php-prod-craft` Dockerfile file permissions
+
 ## 1.2.14 - 2021.06.11
 ### Added
 * Added GitHub actions for automated Docker image building & pushing
