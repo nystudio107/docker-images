@@ -1,5 +1,10 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.16 - 2021.06.15
+### Changed
+* Removed `USER` directive in the PHP containers, since the pool runs as `www-data` already
+* Fix permissions regression
+
 ## 1.2.15 - 2021.06.11
 ### Changed
 * Cleaned up the `php-dev-craft` & `php-prod-craft` Dockerfile file permissions
