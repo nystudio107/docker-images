@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.17 - 2021.06.15
+### Fixed
+* Fixed typo in Dockerfile that would cause the PHP container to not build
+
 ## 1.2.16 - 2021.06.15
 ### Changed
 * Removed `USER` directive in the PHP containers, since the pool runs as `www-data` already
