@@ -46,7 +46,6 @@ services:
     expose:
       - "9000"
     init: true
-    user: www-data
     volumes:
       *php-volumes
   # queue - runs queue jobs via ./craft queue/listen
@@ -58,10 +57,7 @@ services:
       - "php"
     env_file:
       *env
-    expose:
-      - "9001"
     init: true
-    user: www-data
     volumes:
       *php-volumes
   # mysql - database
