@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.18 - 2021.06.26
+### Changed
+* Continue running the `php-fpm` containers as root (since `php-fpm` uses worker pools with the proper user/group), but switch to `su-exec` to ensure any craft CLI commands are run as `www-data`
+
 ## 1.2.17 - 2021.06.15
 ### Fixed
 * Fixed typo in Dockerfile that would cause the PHP container to not build
