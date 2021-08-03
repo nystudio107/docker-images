@@ -1,6 +1,9 @@
 # nystudio107/docker-images Change Log
 
 ## 1.2.19 - 2021.08.02
+### Added
+* Add trigger-based profiling for Xdebug
+
 ### Fixed
 * Fixed upstream issues with `libressl` by pinning to alpine3.13 (https://stackoverflow.com/questions/68013058/alpine3-14-docker-libtls-so-20-conflict)
 * Change from the specific version `gnu-libiconv=1.15-r3` to just `gnu-libiconv`
