@@ -29,7 +29,7 @@ RUN set -eux; \
         fcgi \
         freetype-dev \
         gettext-dev \
-        gnu-libiconv=1.15-r3 \
+        gnu-libiconv \
         icu-dev \
         imagemagick \
         imagemagick-dev \
