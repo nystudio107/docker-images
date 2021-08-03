@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-fpm-alpine3.13
 
 # dependencies required for running "phpize"
 # these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
@@ -23,13 +23,14 @@ RUN set -eux; \
     && \
     # Packages to install
     apk add --no-cache \
+        $PHPIZE_DEPS \
         bzip2-dev \
         ca-certificates \
         curl \
         fcgi \
         freetype-dev \
         gettext-dev \
-        gnu-libiconv=1.15-r3 \
+        gnu-libiconv \
         icu-dev \
         imagemagick \
         imagemagick-dev \
