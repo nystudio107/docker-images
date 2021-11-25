@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.20 - 2021.11.24
+### Added
+* Add `node-16-alpine` image
+
 ## 1.2.19 - 2021.08.02
 ### Added
 * Add trigger-based profiling for Xdebug
