@@ -13,6 +13,7 @@ ENV PHPIZE_DEPS \
         make \
         pkgconf \
         re2c \
+        linux-headers \
         wget
 
 # Install packages
@@ -23,7 +24,7 @@ RUN set -eux; \
     && \
     # pecl PHP extensions
     pecl install \
-        xdebug-3.0.2 \
+        xdebug \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
