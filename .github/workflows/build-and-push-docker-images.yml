@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ["7.4", "8.0"]
+        php: ["7.4", "8.0", "8.1"]
     name: php-dev-base ${{ matrix.php }} images
     steps:
       - name: Check out the repository
