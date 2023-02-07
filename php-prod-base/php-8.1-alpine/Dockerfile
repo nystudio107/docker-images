@@ -14,7 +14,6 @@ ENV PHPIZE_DEPS \
         pkgconf \
         re2c \
         imagemagick-dev \
-        icu-dev \
         zlib-dev \
         libjpeg-turbo-dev \
         libpng-dev \
@@ -36,6 +35,8 @@ RUN set -eux; \
         fcgi \
         freetype-dev \
         gettext-dev \
+        icu-dev \
+        icu-data-full \
         imagemagick \
         libmcrypt-dev \
         libressl-dev \
@@ -58,7 +59,7 @@ RUN set -eux; \
     pecl install imagick \
     && \
     # Install PHP extensions
-    docker-php-ext-install \
+    docker-php-ext-install -j$(nproc) \
         bcmath \
         bz2 \
         exif \
