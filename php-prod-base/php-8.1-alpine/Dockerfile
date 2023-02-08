@@ -7,7 +7,6 @@ ENV PHPIZE_DEPS \
         dpkg-dev \
         dpkg \
         file \
-        freetype-dev \
         g++ \
         gcc \
         libc-dev \
@@ -29,6 +28,7 @@ RUN set -eux; \
         ca-certificates \
         curl \
         fcgi \
+        freetype-dev \
         gettext-dev \
         icu-dev \
         icu-data-full \
