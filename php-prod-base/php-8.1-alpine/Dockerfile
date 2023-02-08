@@ -7,18 +7,14 @@ ENV PHPIZE_DEPS \
         dpkg-dev \
         dpkg \
         file \
+        freetype-dev \
         g++ \
         gcc \
         libc-dev \
         make \
         pkgconf \
         re2c \
-        imagemagick-dev \
         zlib-dev \
-        libjpeg-turbo-dev \
-        libpng-dev \
-        libzip-dev \
-        libgomp \
         wget
 
 # Install packages
@@ -33,15 +29,17 @@ RUN set -eux; \
         ca-certificates \
         curl \
         fcgi \
-        freetype-dev \
         gettext-dev \
         icu-dev \
         icu-data-full \
-        imagemagick \
+        imagemagick-dev \
+        jpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libzip-dev \
         libmcrypt-dev \
         libressl-dev \
         libtool \
-        libwebp-dev \
         libxml2-dev \
         libzip-dev \
         oniguruma-dev \
@@ -56,7 +54,8 @@ RUN set -eux; \
         # ref: https://github.com/docker-library/php/issues/920#issuecomment-562864296
         gd --enable-gd --with-freetype --with-jpeg --with-webp \
     && \
-    pecl install imagick \
+    pecl install \
+        imagick \
     && \
     # Install PHP extensions
     docker-php-ext-install -j$(nproc) \
