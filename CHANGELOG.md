@@ -1,5 +1,13 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.21 - 2023.07.19
+### Added
+* Add `node-18-alpine` image
+* Add `php-prod-base:8.1-alpine` image
+* Add `php-dev-base:8.1-alpine` image
+* Add `php-prod-base:8.2-alpine` image
+* Add `php-dev-base:8.2-alpine` image
+
 ## 1.2.20 - 2021.11.24
 ### Added
 * Add `node-16-alpine` image
