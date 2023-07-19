@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["12", "14", "16"]
+        node: ["12", "14", "16", "18"]
     name: node-dev-base ${{ matrix.node }} images
     steps:
       - name: Check out the repository
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ["7.4", "8.0", "8.1"]
+        php: ["7.4", "8.0", "8.1", "8.2"]
     name: php-dev-base ${{ matrix.php }} images
     steps:
       - name: Check out the repository
