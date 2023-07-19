@@ -14,6 +14,7 @@ ENV PHPIZE_DEPS \
         pkgconf \
         re2c \
         zlib-dev \
+        linux-headers \
         wget
 
 # Install packages
