@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.22 - 2023.07.22
+### Added
+* Add `node-20-alpine` image
+
 ## 1.2.21 - 2023.07.19
 ### Added
 * Add `node-18-alpine` image
