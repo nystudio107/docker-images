@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["14", "16", "18"]
+        node: ["14", "16", "18", "20"]
     name: node-dev-base ${{ matrix.node }} images
     steps:
       - name: Check out the repository
