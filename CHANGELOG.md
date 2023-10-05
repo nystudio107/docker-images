@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.23 - 2023.10.05
+### Added
+* Switch `php-prod-base:8.2-alpine` from Alpine `3.17` to `3.18`
+
 ## 1.2.22 - 2023.07.22
 ### Added
 * Add `node-20-alpine` image
