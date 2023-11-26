@@ -13,6 +13,7 @@ ENV PHPIZE_DEPS \
         make \
         pkgconf \
         re2c \
+        libtool \
         linux-headers \
         wget
 
