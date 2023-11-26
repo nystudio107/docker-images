@@ -38,8 +38,6 @@ RUN set -eux; \
         libpng-dev \
         libwebp-dev \
         libzip-dev \
-        libmcrypt-dev \
-        libressl-dev \
         libtool \
         libxml2-dev \
         libzip-dev \
