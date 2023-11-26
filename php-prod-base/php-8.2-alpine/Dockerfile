@@ -16,7 +16,6 @@ ENV PHPIZE_DEPS \
         zlib-dev \
         libtool \
         linux-headers \
-        openssl \
         wget
 
 # Install packages
@@ -37,6 +36,7 @@ RUN set -eux; \
         icu-data-full \
         imagemagick-dev \
         jpeg-dev \
+        libopenssl-dev \
         libpng-dev \
         libwebp-dev \
         libzip-dev \
