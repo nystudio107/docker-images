@@ -36,7 +36,6 @@ RUN set -eux; \
         icu-data-full \
         imagemagick-dev \
         jpeg-dev \
-        libopenssl-dev \
         libpng-dev \
         libwebp-dev \
         libzip-dev \
@@ -44,6 +43,7 @@ RUN set -eux; \
         libxml2-dev \
         libzip-dev \
         oniguruma-dev \
+        openssl-dev \
         unzip \
     && \
     # pecl PHP extensions
