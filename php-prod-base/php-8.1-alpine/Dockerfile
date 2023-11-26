@@ -16,6 +16,7 @@ ENV PHPIZE_DEPS \
         zlib-dev \
         libtool \
         linux-headers \
+        openssl \
         wget
 
 # Install packages
