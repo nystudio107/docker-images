@@ -43,6 +43,7 @@ RUN set -eux; \
         libxml2-dev \
         libzip-dev \
         oniguruma-dev \
+        openssl-dev \
         unzip \
     && \
     # pecl PHP extensions
