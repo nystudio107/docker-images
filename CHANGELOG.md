@@ -1,6 +1,6 @@
 # nystudio107/docker-images Change Log
 
-## 1.2.24 - UNRELEASED
+## 1.2.25 - UNRELEASED
 ### Changed
 * Remove `ENV PHPIZE_DEPS`, and use the environment variable inherited from the parent Alpine images rather than manually setting it ourselves
 
