@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.24 - UNRELEASED
+### Changed
+* Remove `ENV PHPIZE_DEPS`, and use the environment variable inherited from the parent Alpine images rather than manually setting it ourselves
+
 ## 1.2.24 - 2023.11.26
 ### Changed
 * Removed `libressl` in favor of `openssl` to allow Postgres to work
