@@ -1,8 +1,12 @@
 # nystudio107/docker-images Change Log
 
 ## 1.2.25 - UNRELEASED
+### Added
+* Added a `Makefile` for local building of the images
+
 ### Changed
 * Remove `ENV PHPIZE_DEPS`, and use the environment variable inherited from the parent Alpine images rather than manually setting it ourselves
+* Rename the version directories to remove the `node-` and `php-` prefixes, so the directory  names match the Docker image tags
 
 ## 1.2.24 - 2023.11.26
 ### Changed
