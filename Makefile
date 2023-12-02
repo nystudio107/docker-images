@@ -26,12 +26,12 @@ php:$(PHP_VERSIONS)
 
 # Build specific php prod & dev base images
 $(PHP_VERSIONS):create-builder
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$(subst php-,,$@)
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$(subst php-,,$@)
+	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$@
+	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$@
 
 # Build all node base images
 node:$(NODE_VERSIONS)
 
 # Build specific node base images
 $(NODE_VERSIONS):create-builder
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$(subst node-,,$@)
+	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$@
