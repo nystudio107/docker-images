@@ -1,4 +1,6 @@
-FROM php:8.2-fpm-alpine
+FROM php:8.3-fpm-alpine
+
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 # Install packages
 RUN set -eux; \
@@ -53,8 +55,8 @@ RUN set -eux; \
         # ref: https://github.com/docker-library/php/issues/920#issuecomment-562864296
         gd --enable-gd --with-freetype --with-jpeg --with-webp \
     && \
-    pecl install \
-        imagick \
+    install-php-extensions \
+        gmagick \
     && \
     # Install PHP extensions
     docker-php-ext-install -j$(nproc) \
@@ -77,7 +79,7 @@ RUN set -eux; \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
-        imagick \
+        gmagick \
         redis \
     && \
     # Remove the build deps

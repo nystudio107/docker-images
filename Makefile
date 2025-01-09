@@ -6,8 +6,8 @@ PHP_PROD_NAMESPACE?=php-prod-base
 PHP_DEV_NAMESPACE?=php-dev-base
 NODE_NAMESPACE?=node-dev-base
 
-PHP_VERSIONS?=php-7.4-alpine php-8.0-alpine php-8.1-alpine php-8.2-alpine
-NODE_VERSIONS?=node-14-alpine node-16-alpine node-18-alpine node-20-alpine
+PHP_VERSIONS?=php-7.4-alpine php-8.0-alpine php-8.1-alpine php-8.2-alpine php-8.3-alpine php-8.4-alpine
+NODE_VERSIONS?=node-14-alpine node-16-alpine node-18-alpine node-20-alpine node-22-alpine
 
 .PHONY: all create-builder php $(PHP_VERSIONS) node $(NODE_VERSIONS)
 
