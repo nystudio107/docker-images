@@ -1,6 +1,6 @@
 # nystudio107/docker-images Change Log
 
-## 1.2.25 - UNRELEASED
+## 1.2.25 - 2025.01.10
 ### Added
 * Added a `Makefile` for local building of the images
 * Add `node-22-alpine` image
