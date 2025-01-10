@@ -1,5 +1,9 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.26 - 2025.01.10
+### Fix
+* Fix wrong base image for `php-prod-base:8.4-alpine`
+
 ## 1.2.25 - 2025.01.10
 ### Added
 * Added a `Makefile` for local building of the images
