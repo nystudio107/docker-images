@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        node: ["14", "16", "18", "20"]
+        node: ["16", "18", "20", "22"]
     name: node-dev-base ${{ matrix.node }} images
     steps:
       - name: Check out the repository
@@ -26,7 +26,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build nystudio107/node-dev-base:${{ matrix.node }}-alpine
+      - name: Build nystudio107/node-dev-base:node-${{ matrix.node }}-alpine
         uses: docker/build-push-action@v2
         with:
           context: node-dev-base/node-${{ matrix.node }}-alpine
@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ["7.4", "8.0", "8.1", "8.2"]
+        php: ["8.0", "8.1", "8.2", "8.3", "8.4"]
     name: php-dev-base ${{ matrix.php }} images
     steps:
       - name: Check out the repository
@@ -57,7 +57,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build nystudio107/php-prod-base:${{ matrix.php }}-alpine
+      - name: Build nystudio107/php-prod-base:php-${{ matrix.php }}-alpine
         uses: docker/build-push-action@v2
         with:
           context: php-prod-base/php-${{ matrix.php }}-alpine
@@ -67,7 +67,7 @@ jobs:
           tags: nystudio107/php-prod-base:${{ matrix.php }}-alpine
           build-args: |
             PHP_VERSION=${{ matrix.php }}
-      - name: Build nystudio107/php-dev-base:${{ matrix.php }}-alpine
+      - name: Build nystudio107/php-dev-base:php-${{ matrix.php }}-alpine
         uses: docker/build-push-action@v2
         with:
           context: php-dev-base/php-${{ matrix.php }}-alpine

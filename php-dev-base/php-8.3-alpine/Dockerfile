@@ -1,4 +1,4 @@
-FROM nystudio107/php-prod-base:8.0-alpine
+FROM nystudio107/php-prod-base:8.3-alpine
 
 # Install packages
 RUN set -eux; \
@@ -24,7 +24,7 @@ RUN set -eux; \
     && \
     # pecl PHP extensions
     pecl install \
-        xdebug-3.0.2 \
+        xdebug \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
