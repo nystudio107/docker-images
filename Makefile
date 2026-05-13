@@ -1,6 +1,6 @@
 BUILDER_NAME?=craft-builder
 BUILD_PLATFORM?=linux/$(shell arch)
-BUILD_COMMAND?=docker buildx build --load --platform ${BUILD_PLATFORM} --builder ${BUILDER_NAME}
+BUILD_COMMAND?=docker buildx build --builder ${BUILDER_NAME}
 IMAGE_NAMESPACE?=nystudio107
 PHP_PROD_NAMESPACE?=php-prod-base
 PHP_DEV_NAMESPACE?=php-dev-base
@@ -12,11 +12,12 @@ NODE_VERSIONS?=node-16-alpine node-18-alpine node-20-alpine node-22-alpine node-
 .PHONY: all create-builder php $(PHP_VERSIONS) node $(NODE_VERSIONS)
 
 # Build all base images
-push: export BUILD_FLAGS := ""
+build: export BUILD_FLAGS:=--load
 build: php node
 
 # Build & push all base images
-push: export BUILD_FLAGS := "--push"
+push: export BUILD_FLAGS:=--push
+push: export BUILD_PLATFORM:=linux/arm64/v8,linux/amd64
 push: php node
 
 # Ensure a builder exists for docker buildx
@@ -31,12 +32,12 @@ php:$(PHP_VERSIONS)
 
 # Build specific php prod & dev base images
 $(PHP_VERSIONS):create-builder
-	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$@
-	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$@
+	${BUILD_COMMAND} --platform ${BUILD_PLATFORM} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$@
+	${BUILD_COMMAND} --platform ${BUILD_PLATFORM} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$@
 
 # Build all node base images
 node:$(NODE_VERSIONS)
 
 # Build specific node base images
 $(NODE_VERSIONS):create-builder
-	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$@
+	${BUILD_COMMAND} --platform ${BUILD_PLATFORM} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$@
