@@ -12,7 +12,12 @@ NODE_VERSIONS?=node-16-alpine node-18-alpine node-20-alpine node-22-alpine node-
 .PHONY: all create-builder php $(PHP_VERSIONS) node $(NODE_VERSIONS)
 
 # Build all base images
-all: php node
+push: export BUILD_FLAGS := ""
+build: php node
+
+# Build & push all base images
+push: export BUILD_FLAGS := "--push"
+push: php node
 
 # Ensure a builder exists for docker buildx
 create-builder:
@@ -26,12 +31,12 @@ php:$(PHP_VERSIONS)
 
 # Build specific php prod & dev base images
 $(PHP_VERSIONS):create-builder
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$@
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$@
+	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_PROD_NAMESPACE}:$(subst php-,,$@) ${PHP_PROD_NAMESPACE}/$@
+	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${PHP_DEV_NAMESPACE}:$(subst php-,,$@) ${PHP_DEV_NAMESPACE}/$@
 
 # Build all node base images
 node:$(NODE_VERSIONS)
 
 # Build specific node base images
 $(NODE_VERSIONS):create-builder
-	${BUILD_COMMAND} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$@
+	${BUILD_COMMAND} ${BUILD_FLAGS} -t ${IMAGE_NAMESPACE}/${NODE_NAMESPACE}:$(subst node-,,$@) ${NODE_NAMESPACE}/$@
