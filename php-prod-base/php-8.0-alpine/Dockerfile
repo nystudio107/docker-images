@@ -95,7 +95,7 @@ RUN set -eux; \
     rm -rf /tmp/* /var/tmp/*
 
 # https://github.com/docker-library/php/issues/1121
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+ENV LD_PRELOAD=/usr/lib/preloadable_libiconv.so php
 
 # Copy the `zzz-docker-php.ini` file into place for php
 COPY zzz-docker-php.ini /usr/local/etc/php/conf.d/
