@@ -1,5 +1,11 @@
 # nystudio107/docker-images Change Log
 
+## 1.2.26 - 2026.05.13
+### Added
+* Add `node-24-alpine` image
+* Add `php-prod-base:8.5-alpine` image
+* Add `php-dev-base:8.5-alpine` image
+
 ## 1.2.26 - 2025.01.10
 ### Fix
 * Fix wrong base image for `php-prod-base:8.4-alpine`
