@@ -56,7 +56,7 @@ RUN set -eux; \
         gd --enable-gd --with-freetype --with-jpeg --with-webp \
     && \
     install-php-extensions \
-        gmagick \
+        imagick \
     && \
     # Install PHP extensions
     docker-php-ext-install -j$(nproc) \
@@ -68,7 +68,6 @@ RUN set -eux; \
         gd \
         intl \
         mbstring \
-        opcache \
         pdo \
         shmop \
         sockets \
@@ -79,7 +78,7 @@ RUN set -eux; \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
-        gmagick \
+        imagick \
         redis \
     && \
     # Remove the build deps
