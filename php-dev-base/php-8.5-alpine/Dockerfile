@@ -22,12 +22,9 @@ RUN set -eux; \
         linux-headers \
         wget \
     && \
-    # As per https://github.com/laradock/laradock/issues/1315#issuecomment-853835007
-    pecl channel-update pecl.php.net \
-    && \
     # pecl PHP extensions
-    pecl install \
-        xdebug \
+    apk add --no-cache \
+        php85-pecl-xdebug \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
