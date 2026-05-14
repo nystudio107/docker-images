@@ -1,4 +1,6 @@
-FROM php:8.0-fpm-alpine3.13
+FROM php:8.5-fpm-alpine
+
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 # Install packages
 RUN set -eux; \
@@ -30,51 +32,42 @@ RUN set -eux; \
         fcgi \
         freetype-dev \
         gettext-dev \
-        gnu-libiconv \
         icu-dev \
-        imagemagick \
+        icu-data-full \
         imagemagick-dev \
-        libjpeg-turbo-dev \
-        libmcrypt-dev \
-        libpng \
+        jpeg-dev \
         libpng-dev \
-        libressl-dev \
-        libtool \
         libwebp-dev \
+        libzip-dev \
+        libtool \
         libxml2-dev \
         libzip-dev \
         oniguruma-dev \
+        openssl-dev \
         unzip \
     && \
     # pecl PHP extensions
     pecl install \
         redis \
     && \
-    # install imagick
-    # use github version for now until release from https://pecl.php.net/get/imagick is ready for PHP 8
-    # ref: https://github.com/Imagick/imagick/issues/358
-    mkdir -p /usr/src/php/ext/imagick \
-    && \
-    curl -fsSL https://github.com/Imagick/imagick/archive/06116aa24b76edaf6b1693198f79e6c295eda8a9.tar.gz | tar xvz -C "/usr/src/php/ext/imagick" --strip 1 \
-    && \
     # Configure PHP extensions
     docker-php-ext-configure \
         # ref: https://github.com/docker-library/php/issues/920#issuecomment-562864296
         gd --enable-gd --with-freetype --with-jpeg --with-webp \
     && \
+    install-php-extensions \
+        imagick \
+    && \
     # Install PHP extensions
-    docker-php-ext-install \
+    docker-php-ext-install -j$(nproc) \
         bcmath \
         bz2 \
         exif \
         ftp \
         gettext \
         gd \
-        iconv \
         intl \
-        imagick \
         mbstring \
-        opcache \
         pdo \
         shmop \
         sockets \
@@ -93,9 +86,6 @@ RUN set -eux; \
     && \
     # Clean out directories that don't need to be part of the image
     rm -rf /tmp/* /var/tmp/*
-
-# https://github.com/docker-library/php/issues/1121
-ENV LD_PRELOAD=/usr/lib/preloadable_libiconv.so
 
 # Copy the `zzz-docker-php.ini` file into place for php
 COPY zzz-docker-php.ini /usr/local/etc/php/conf.d/

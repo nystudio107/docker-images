@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:26-alpine
 
 # Install packages for headless chrome
 RUN apk update \
