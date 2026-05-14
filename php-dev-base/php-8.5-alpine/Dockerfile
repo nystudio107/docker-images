@@ -23,8 +23,8 @@ RUN set -eux; \
         wget \
     && \
     # pecl PHP extensions
-    apk add --no-cache \
-        php85-pecl-xdebug \
+    pecl install \
+        xdebug \
     && \
     # Enable PHP extensions
     docker-php-ext-enable \
